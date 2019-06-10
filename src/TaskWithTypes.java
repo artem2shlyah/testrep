@@ -1,5 +1,6 @@
-import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.DoubleSummaryStatistics;
 import java.util.Scanner;
 
 public class TaskWithTypes {
@@ -20,7 +21,7 @@ public class TaskWithTypes {
         System.out.println("5: Преобразование массива в строку и обратно");
         System.out.println("6: Добавление слова к каждому элементу массива");
         System.out.println("7: Преобразование массива в boolean");
-
+        System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
 
@@ -56,11 +57,11 @@ public class TaskWithTypes {
         ArrayList<Short> array = new ArrayList<>();
         short arrayVar;
         double avg = 0;
-        System.out.println("Введите длину массива");
-
+        System.out.print("Введите длину массива: ");
         short length = userChoice.nextShort();
+        System.out.println();
 
-        for (Short i = 0; i <= length; i++) {
+        for (Short i = 0; i <= length - 1; i++) {
             arrayVar = (short) (Math.random() * 11);
             array.add(arrayVar);
             avg += arrayVar;
@@ -70,17 +71,19 @@ public class TaskWithTypes {
 
 
         System.out.print("Массив: ");
-        for (Short i = 0; i<= length; i++) {System.out.print(array.get(i) + " ");}
+        for (Short i:array) {System.out.print(i + " ");}
         System.out.println();
 
-        System.out.print("Среднее арифметическое равно " + avg);
+        System.out.println("Среднее арифметическое равно " + avg);
+        start();
     }
 
     private void Fact() {
         int res = 1;
 
-        System.out.println("Введите аргумент факториала (неотрицательное целое число в разумных пределах, например до 12)");
+        System.out.print("Введите аргумент факториала (неотрицательное целое число в разумных пределах, например до 12): ");
         Short arg = userChoice.nextShort();
+        System.out.println();
 
         if (arg >= 0) {
             if (arg == 0) {
@@ -100,15 +103,133 @@ public class TaskWithTypes {
         else {
             System.out.println("Некорректный аргумент");
         }
+        start();
     }
 
-    private void ProductPrice() {}
+    private void ProductPrice() {
+        short j;
+        System.out.print("Введите количество товаров: ");
+        short length = userChoice.nextShort();
+        System.out.println();
 
-    private void Parity() {}
+        int[][] ProductPrices = new int[length][2];
 
-    private void StringConversion() {}
+        for (short i = 0; i <= length - 1; i++) {
+            for (j = 0; j <= 1; j++) {
+                ProductPrices[i][j] = (int) (Math.random() * 100001);
+            }
+        }
+        System.out.println("Коды товаров:");
+        for (short i = 0; i <= length - 1; i++) {System.out.println(ProductPrices[i][0]);}
+        j = 0;
 
-    private void WordAdd() {}
+        while (j == 0) {
+            System.out.print("Введите код товара, чтобы узнать его цену: ");
+            int ProductCode = userChoice.nextInt();
 
-    private void BooleanConversion() {}
+            for (short i = 0; i <= length - 1; i++) {
+                if (ProductPrices[i][0] == ProductCode) {
+                    System.out.println("Цена выбранного товара составляет " + ProductPrices[i][1]);
+                    j++;
+                }
+                if (i == length - 1 && j == 0) {
+                    System.out.println("Введен некорректный код продукта! Попробуйте еще раз");
+                }
+            }
+        }
+        start();
+    }
+
+    private void Parity() {
+        System.out.print("Введите число: ");
+        int n = userChoice.nextInt();
+        System.out.println();
+
+        if (n % 2 == 0) {System.out.println("Введенное число - четное!");}
+        else {System.out.println("Введенное число - нечетное!");}
+        start();
+    }
+
+    private void StringConversion() {
+        System.out.print("Введите длину массива: ");
+        short length = userChoice.nextShort();
+        System.out.println();
+
+        int[] array = new int[length];
+
+        for (short i = 0; i <= length - 1; i++) {
+            array[i] = ((short) (Math.random() * 21));
+        }
+
+        String StringArray = Arrays.toString(array);
+        System.out.println("Строка, содержащая все эелементы массива: " + StringArray);
+
+        StringArray = StringArray.replace("[","");
+        StringArray = StringArray.replace("]","");
+        StringArray = StringArray.replace(",","");
+        String[] StrVar = StringArray.split(" ");
+        for (short i = 0; i < StrVar.length; i++) {
+            array[i] = Integer.parseInt(StrVar[i]);
+        }
+
+        System.out.print("Числовой массив после преобразования из строки: ");
+        for (int i : array) {System.out.print(i + " ");}
+        System.out.println();
+
+        start();
+    }
+
+    private void WordAdd() {
+        System.out.print("Введите длину массива: ");
+        short length = userChoice.nextShort();
+        System.out.println();
+        short var;
+
+        String[] array = new String[length];
+
+        for (short i = 0; i <= length - 1; i++) {
+            var = (short) (Math.random() * 21);
+            array[i] = Integer.toString(var);
+        }
+        System.out.print("Начальный массив: ");
+        for (String i: array) {System.out.print(i + " ");}
+        System.out.println();
+
+        for (short i = 0; i<= length - 1; i++) {
+            array[i] += " hello";
+        }
+        System.out.println("Массив после преобразования: ");
+        for (String i: array) {System.out.println(i);}
+
+        start();
+    }
+
+    private void BooleanConversion() {
+        System.out.print("Введите количество элементов массива: ");
+        short length = userChoice.nextShort();
+        System.out.println();
+
+        short[] array = new short[length];
+
+        for (short i = 0; i < length; i++) {
+            array[i] = (short) (Math.random() * 21);
+        }
+
+        System.out.print("Исходный массив: ");
+        for (short i : array) {System.out.print(i + " ");}
+        System.out.println();
+
+        short exp = 0;
+        boolean[] boolArray = new boolean[length];
+        for (short i : array) {
+            boolArray[exp] = ( i % 2 == 0);
+            exp++;
+        }
+
+        System.out.print("Булевый массив по четности: ");
+        for (boolean i : boolArray) {System.out.print(i + " ");}
+        System.out.println();
+
+        start();
+    }
 }
