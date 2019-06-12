@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.DoubleSummaryStatistics;
 import java.util.Scanner;
 
 public class TaskWithTypes {
@@ -21,6 +20,7 @@ public class TaskWithTypes {
         System.out.println("5: Преобразование массива в строку и обратно");
         System.out.println("6: Добавление слова к каждому элементу массива");
         System.out.println("7: Преобразование массива в boolean");
+        System.out.println("8: Решение, что делать днем");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -46,6 +46,9 @@ public class TaskWithTypes {
                 break;
             case 7:
                 BooleanConversion();
+                break;
+            case 8:
+                TimeMoney();
                 break;
             default:
                 break;
@@ -229,6 +232,34 @@ public class TaskWithTypes {
         System.out.print("Булевый массив по четности: ");
         for (boolean i : boolArray) {System.out.print(i + " ");}
         System.out.println();
+
+        start();
+    }
+
+    private void TimeMoney() {
+        System.out.print("Введите время в формате \"ЧЧ:ММ\": ");
+        String enter = userChoice.next();
+
+        enter = enter.replace(":", " ");
+        String[] enterArray = enter.split(" ");
+
+        System.out.print("Введите количество имеющихся денег: ");
+        int money = userChoice.nextInt();
+
+        int hours = Integer.parseInt(enterArray[0]);
+        int minutes = Integer.parseInt(enterArray[1]);
+
+        if ((hours > 23 || hours <0) || (minutes < 0 || minutes > 59) || (money < 0)) {
+            System.out.println("Вы ввели некорректные время или сумму денег. Пожалуйста, попробуйте еще раз!");
+            TimeMoney();
+        }
+        else {
+            if (hours < 8 || hours >= 22) {System.out.println("Спим!");}
+            if (hours >= 8 && hours < 12 && money > 10) {System.out.println("Идем в магазин");}
+            if (hours >= 12 && hours < 19 && money > 50) {System.out.println("Идем в кафе");}
+            if (hours > 12 && hours < 19 && money < 50) {System.out.println("Идем к соседу");}
+            if (hours >= 19 && hours < 22) {System.out.println("Смотрим телевизор");}
+        }
 
         start();
     }
