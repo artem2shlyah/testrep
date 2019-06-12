@@ -242,24 +242,28 @@ public class TaskWithTypes {
 
         enter = enter.replace(":", " ");
         String[] enterArray = enter.split(" ");
+        int hours = Integer.parseInt(enterArray[0]);
+        int minutes = Integer.parseInt(enterArray[1]);
+
+        if ((hours > 23 || hours <0) || (minutes < 0 || minutes > 59)) {
+            System.out.println("Вы ввели некорректные время. Пожалуйста, попробуйте еще раз!");
+            TimeMoney();
+        }
 
         System.out.print("Введите количество имеющихся денег: ");
         int money = userChoice.nextInt();
 
-        int hours = Integer.parseInt(enterArray[0]);
-        int minutes = Integer.parseInt(enterArray[1]);
-
-        if ((hours > 23 || hours <0) || (minutes < 0 || minutes > 59) || (money < 0)) {
-            System.out.println("Вы ввели некорректные время или сумму денег. Пожалуйста, попробуйте еще раз!");
+        if (money < 0) {
+            System.out.println("Вы ввели некорректную сумму денег. Пожалуйста, попробуйте еще раз!");
             TimeMoney();
         }
-        else {
-            if (hours < 8 || hours >= 22) {System.out.println("Спим!");}
-            if (hours >= 8 && hours < 12 && money > 10) {System.out.println("Идем в магазин");}
-            if (hours >= 12 && hours < 19 && money > 50) {System.out.println("Идем в кафе");}
-            if (hours > 12 && hours < 19 && money < 50) {System.out.println("Идем к соседу");}
-            if (hours >= 19 && hours < 22) {System.out.println("Смотрим телевизор");}
-        }
+
+        if (hours < 8 || hours >= 22) {System.out.println("Спим!");}
+        if (hours >= 8 && hours < 12 && money > 10) {System.out.println("Идем в магазин");}
+        if (hours >= 12 && hours < 19 && money > 50) {System.out.println("Идем в кафе");}
+        if (hours > 12 && hours < 19 && money < 50) {System.out.println("Идем к соседу");}
+        if (hours >= 19 && hours < 22) {System.out.println("Смотрим телевизор");}
+        System.out.println();
 
         start();
     }
