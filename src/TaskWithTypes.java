@@ -21,6 +21,7 @@ public class TaskWithTypes {
         System.out.println("6: Добавление слова к каждому элементу массива");
         System.out.println("7: Преобразование массива в boolean");
         System.out.println("8: Решение, что делать днем");
+        System.out.println("9: Цикл с пред- и послеусловием");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -49,6 +50,9 @@ public class TaskWithTypes {
                 break;
             case 8:
                 TimeMoney();
+                break;
+            case 9:
+                BeforeAfterCycle();
                 break;
             default:
                 break;
@@ -269,6 +273,22 @@ public class TaskWithTypes {
             }
             System.out.println();
         }
+
+        start();
+    }
+
+    private void BeforeAfterCycle() {
+        System.out.print("Введите начальное значения числа: ");
+        short a = userChoice.nextShort();
+
+        while (a >= 10) {
+            do {
+                System.out.print(a + " ");
+                a--;
+            }
+            while (a > 10);
+        }
+        System.out.println();
 
         start();
     }
