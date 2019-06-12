@@ -4,14 +4,7 @@
   <groupId>tst-group</groupId>
   <artifactId>TaskWithTypes</artifactId>
   <version>1.0</version>
-    <repositories>
-        <repository>
-            <id>jcenter</id>
-            <name>bintray</name>
-            <url>http://jcenter.bintray.com</url>
-        </repository>
-    </repositories>
-  <dependencies>
+    <dependencies>
     <dependency>
 		<groupId>org.testng</groupId>
 		<artifactId>testng</artifactId>
