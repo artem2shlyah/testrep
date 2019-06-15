@@ -1,4 +1,6 @@
+import testClasses.Dog;
 import testClasses.TestClass;
+import testClasses.TestDog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +27,7 @@ public class TaskWithTypes {
         System.out.println("8: Решение, что делать днем");
         System.out.println("9: Цикл с пред- и послеусловием");
         System.out.println("10: Вызов другого класса");
+        System.out.println("11: Перегрузка и переопределение");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -59,6 +62,9 @@ public class TaskWithTypes {
                 break;
             case 10:
                 AnotherClass();
+                break;
+            case 11:
+                startDogs();
                 break;
             default:
                 break;
@@ -315,6 +321,42 @@ public class TaskWithTypes {
 
         obj1.setInstance(instance1);
         obj2.setInstance(instance2);
+
+        System.out.println();
+        start();
+    }
+
+    private void startDogs() {
+        System.out.print("Введите имя первой собаки: ");
+        String dogName = userChoice.next();
+        TestDog dogFrst = new TestDog(dogName);
+        System.out.print("Введите имя второй собаки: ");
+        dogName = userChoice.next();
+        Dog dogScnd = new Dog(dogName);
+
+        System.out.print("Введите обычную высоту первой собаки: ");
+        int higness = userChoice.nextInt();
+        dogFrst.setHigh(higness);
+        System.out.print("Введите обычную массу первой собаки: ");
+        int massa = userChoice.nextInt();
+        dogFrst.setMass(massa);
+        System.out.print("Введите высоту для перегрузки первой собаки: ");
+        short higness2 = userChoice.nextShort();
+        dogFrst.setHigh(higness2);
+        System.out.print("Введите массу для перегрузки первой собаки: ");
+        short massa2 = userChoice.nextShort();
+        dogFrst.setMass(massa2);
+        dogFrst.Move();
+        dogFrst.Eat();
+
+        System.out.print("Введите обычную высоту второй собаки: ");
+        higness = userChoice.nextInt();
+        dogScnd.setHigh(higness);
+        System.out.print("Введите обычную массу второй собаки: ");
+        massa = userChoice.nextInt();
+        dogScnd.setMass(massa);
+        dogScnd.Move();
+        dogScnd.Eat();
 
         System.out.println();
         start();
