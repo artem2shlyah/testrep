@@ -1,3 +1,5 @@
+import testClasses.TestClass;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -22,6 +24,7 @@ public class TaskWithTypes {
         System.out.println("7: Преобразование массива в boolean");
         System.out.println("8: Решение, что делать днем");
         System.out.println("9: Цикл с пред- и послеусловием");
+        System.out.println("10: Вызов другого класса");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -54,6 +57,9 @@ public class TaskWithTypes {
             case 9:
                 BeforeAfterCycle();
                 break;
+            case 10:
+                AnotherClass();
+                break;
             default:
                 break;
         }
@@ -61,7 +67,7 @@ public class TaskWithTypes {
 
 
     private void AverageOfArray() {
-        ArrayList<Short> array = new ArrayList<>();
+        ArrayList<Short> array = new ArrayList();
         short arrayVar;
         double avg = 0;
         System.out.print("Введите длину массива: ");
@@ -290,6 +296,27 @@ public class TaskWithTypes {
         }
         System.out.println();
 
+        start();
+    }
+
+    private void AnotherClass() {
+        System.out.print("Введите имя первого объекта: ");
+        String obj1Name = userChoice.next();
+        System.out.print("Введите имя второго объекта: ");
+        String obj2Name = userChoice.next();
+
+        TestClass obj1 = new TestClass(obj1Name);
+        TestClass obj2 = new TestClass(obj2Name);
+
+        System.out.print("Введите параметр для первого объекта (целое число): ");
+        int instance1 = userChoice.nextInt();
+        System.out.print("Введите параметр для второго объекта (целое число): ");
+        int instance2 = userChoice.nextInt();
+
+        obj1.setInstance(instance1);
+        obj2.setInstance(instance2);
+
+        System.out.println();
         start();
     }
 }
