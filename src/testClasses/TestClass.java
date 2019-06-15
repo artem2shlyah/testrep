@@ -13,4 +13,8 @@ public class TestClass {
         this.name = entranceName;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
 }
