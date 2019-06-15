@@ -6,4 +6,5 @@ public interface Animals {
     void setMass(int massa);
     void Move();
     void Eat();
+    void SuperMoove();
 }

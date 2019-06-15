@@ -29,6 +29,11 @@ public class Dog implements Animals {
         System.out.println("Собака кушает!");
     }
 
+    @Override
+    public void SuperMoove() {
+        System.out.println("Не переопределенной метод класса-родителя!");
+    }
+
     public Dog (String name) {
         this.name = name;
     }

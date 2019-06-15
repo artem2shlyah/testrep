@@ -348,6 +348,8 @@ public class TaskWithTypes {
         dogFrst.setMass(massa2);
         dogFrst.Move();
         dogFrst.Eat();
+        dogFrst.SuperMoove();
+        System.out.println();
 
         System.out.print("Введите обычную высоту второй собаки: ");
         higness = userChoice.nextInt();
@@ -357,6 +359,7 @@ public class TaskWithTypes {
         dogScnd.setMass(massa);
         dogScnd.Move();
         dogScnd.Eat();
+        dogScnd.SuperMoove();
 
         System.out.println();
         start();
