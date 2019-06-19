@@ -362,6 +362,7 @@ public class TaskWithTypes {
         dogScnd.SuperMoove();
 
         System.out.println();
+        Dog.StaticDogOut();
         start();
     }
 }

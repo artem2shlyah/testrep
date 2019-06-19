@@ -39,4 +39,13 @@ public class Dog implements Animals {
     }
 
     public Dog() {}
+
+    protected void SomeMove() {
+        System.out.println("Вызов метода родительского класса с доступом protected");
+    }
+
+    public static void StaticDogOut() {
+        System.out.println("Вызов статического метода из класса Dog");
+        System.out.println();
+    }
 }

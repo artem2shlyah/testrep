@@ -15,6 +15,7 @@ public class TestDog extends Dog {
     @Override
     public void Move() {
         System.out.println("Собака переопределенно прыгает, бегает и кусается!");
+        SomeMove();
     }
 
     @Override
