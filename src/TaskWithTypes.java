@@ -1,5 +1,6 @@
 import testClasses.Dog;
 import testClasses.TestClass;
+import testClasses.TestCollections;
 import testClasses.TestDog;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class TaskWithTypes {
         System.out.println("9: Цикл с пред- и послеусловием");
         System.out.println("10: Вызов другого класса");
         System.out.println("11: Перегрузка и переопределение");
+        System.out.println("12: Работа с коллекциями");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -65,6 +67,9 @@ public class TaskWithTypes {
                 break;
             case 11:
                 startDogs();
+                break;
+            case 12:
+                startCollection();
                 break;
             default:
                 break;
@@ -363,6 +368,12 @@ public class TaskWithTypes {
 
         System.out.println();
         Dog.StaticDogOut();
+        start();
+    }
+
+    private void startCollection() {
+        TestCollections.startMapCollections();
+        TestCollections.startSetCollections();
         start();
     }
 }
