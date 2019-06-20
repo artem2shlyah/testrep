@@ -30,6 +30,7 @@ public class TaskWithTypes {
         System.out.println("10: Вызов другого класса");
         System.out.println("11: Перегрузка и переопределение");
         System.out.println("12: Работа с коллекциями");
+        System.out.println("13: Работа с исключениями");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -70,6 +71,9 @@ public class TaskWithTypes {
                 break;
             case 12:
                 startCollection();
+                break;
+            case 13:
+                startTryCatch();
                 break;
             default:
                 break;
@@ -373,7 +377,34 @@ public class TaskWithTypes {
 
     private void startCollection() {
         TestCollections.startMapCollections();
+        System.out.println();
         TestCollections.startSetCollections();
+        start();
+    }
+
+    private void startTryCatch() {
+        double exTry = 0;
+        Scanner tryIt = new Scanner(System.in);
+
+        try {
+            exTry = 1/0;
+        } catch (ArithmeticException e) { System.out.println("Словили исключение: На ноль делить нельзя!");}
+        if (exTry != 0) {System.out.println(exTry);}
+
+
+        System.out.print("Введите какую-то строку: ");
+        String str = tryIt.nextLine();
+        str = null;
+        try {
+            if (str.equals("1")) {System.out.println("Ваша строка: " + str);}
+        } catch (NullPointerException e) {System.out.println("Словили исключение: Ваша строка пустая!");}
+
+        try {
+            if (str.equals("1")) {System.out.println("Ваша строка: " + str);}
+        } finally {
+            System.out.println("Мы изменили вашу строку и словили исключение. Сообщение выведено через finally, так что сейчас будет ошибка!");
+        }
+        System.out.println();
         start();
     }
 }
