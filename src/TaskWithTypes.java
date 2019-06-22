@@ -1,7 +1,4 @@
-import testClasses.Dog;
-import testClasses.TestClass;
-import testClasses.TestCollections;
-import testClasses.TestDog;
+import testClasses.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +28,7 @@ public class TaskWithTypes {
         System.out.println("11: Перегрузка и переопределение");
         System.out.println("12: Работа с коллекциями");
         System.out.println("13: Работа с исключениями");
+        System.out.println("14: Работа с потоками");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -74,6 +72,9 @@ public class TaskWithTypes {
                 break;
             case 13:
                 startTryCatch();
+                break;
+            case 14:
+                ThreadMagic();
                 break;
             default:
                 break;
@@ -406,5 +407,20 @@ public class TaskWithTypes {
         }
         System.out.println();
         start();
+    }
+
+    private void ThreadMagic() {
+        for (short i = 0; i < 10; i++) {
+            TestParallelThreads thread = new TestParallelThreads("Thread" + i);
+            thread.start();
+        }
+
+
+        for (short i = 0; i< 5; i++) {
+            TestSynchThread thread = new TestSynchThread("SynchThread" + i);
+            thread.start();
+        }
+
+        System.out.println();
     }
 }
