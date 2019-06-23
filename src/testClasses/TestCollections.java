@@ -42,4 +42,20 @@ public class TestCollections {
 
     }
 
+    public static void startListCollections() {
+        LinkedList linkedList = new LinkedList();
+
+        linkedList.add("frst");
+        linkedList.add("scnd");
+        linkedList.add("thrd");
+        linkedList.add("fourth");
+        linkedList.add("fifth");
+
+        for (Object o : linkedList) {
+            System.out.print(o + " ");
+        }
+        System.out.println();
+        System.out.println(linkedList.get(2));
+    }
+
 }

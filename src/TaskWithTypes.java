@@ -380,6 +380,9 @@ public class TaskWithTypes {
         TestCollections.startMapCollections();
         System.out.println();
         TestCollections.startSetCollections();
+        System.out.println();
+        TestCollections.startListCollections();
+        System.out.println();
         start();
     }
 
@@ -391,7 +394,6 @@ public class TaskWithTypes {
             exTry = 1/0;
         } catch (ArithmeticException e) { System.out.println("Словили исключение: На ноль делить нельзя!");}
         if (exTry != 0) {System.out.println(exTry);}
-
 
         System.out.print("Введите какую-то строку: ");
         String str = tryIt.nextLine();
@@ -414,7 +416,6 @@ public class TaskWithTypes {
             TestParallelThreads thread = new TestParallelThreads("Thread" + i);
             thread.start();
         }
-
 
         for (short i = 0; i< 5; i++) {
             TestSynchThread thread = new TestSynchThread("SynchThread" + i);
