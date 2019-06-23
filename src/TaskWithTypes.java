@@ -98,7 +98,6 @@ public class TaskWithTypes {
 
         avg = avg / length;
 
-
         System.out.print("Массив: ");
         for (Short i:array) {System.out.print(i + " ");}
         System.out.println();
