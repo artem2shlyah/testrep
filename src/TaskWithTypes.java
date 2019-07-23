@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import testClasses.*;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class TaskWithTypes {
         System.out.println("12: Работа с коллекциями");
         System.out.println("13: Работа с исключениями");
         System.out.println("14: Работа с потоками");
+        System.out.println("15: преобразование строки в json");
         System.out.println("Для выхода введите любое число кроме доступных");
 
         byte task = userChoice.nextByte();
@@ -75,6 +77,9 @@ public class TaskWithTypes {
                 break;
             case 14:
                 ThreadMagic();
+                break;
+            case  15:
+                ToJSONConversion();
                 break;
             default:
                 break;
@@ -422,5 +427,9 @@ public class TaskWithTypes {
         }
 
         System.out.println();
+    }
+
+    private void ToJSONConversion() {
+        Convertion.ScndJsonTry();
     }
 }
